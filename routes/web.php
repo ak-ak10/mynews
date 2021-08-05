@@ -15,16 +15,15 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin'], function() {
-    route::get('news/create', 'Admin\NewsController@add');
+    route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
     // 
     route::get('profile/create', 'Admin\ProfileController@add');
     route::get('profile/edit', 'Admisn\ProfileController@edit');
 });
-
 //   Route::get('bbb', 'Bbb\AAAController@add');
- 
- 
- 
- ?>
 
+Auth::routes();
+
+
+Route::get('/home', 'HomeController@index')->name('home');
 
