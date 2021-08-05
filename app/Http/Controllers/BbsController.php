@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class BbsController extends Controller
 {
     public function index(){
-        echo "hello";
+        return view('bbs.index');
     }
 }
