@@ -25,5 +25,6 @@ Route::group(['prefix' => 'admin'], function() {
 Auth::routes();
 
 Route::get('bbs', 'BbsController@index');
+Route::post('bbs', 'BbsController@create');
 Route::get('/home', 'HomeController@index')->name('home');
 
