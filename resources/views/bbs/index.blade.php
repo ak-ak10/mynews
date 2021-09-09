@@ -4,7 +4,7 @@
         <title>メンタリングで作ったBBS</title>
     </head>
     <body>
-        これはbbs/index.blade.phpを表示しています
+        これはbbs/index.blade.phpを表示しています!!!
         <h1>書き込み</h1>
         <form action="{{ action('BbsController@create') }}" method="post">
             @csrf

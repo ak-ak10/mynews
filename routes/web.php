@@ -18,7 +18,8 @@ Route::group(['prefix' => 'admin'], function() {
     route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
     // 
     route::get('profile/create', 'Admin\ProfileController@add');
-    route::get('profile/edit', 'Admisn\ProfileController@edit');
+    route::post('profile/create', 'Admin\ProfileController@create');
+    route::get('profile/edit', 'Admin\ProfileController@edit');
 });
 //   Route::get('bbb', 'Bbb\AAAController@add');
 
@@ -27,4 +28,21 @@ Auth::routes();
 Route::get('bbs', 'BbsController@index');
 Route::post('bbs', 'BbsController@create');
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('news/create', 'Admin\ProfileController@add')->middleware('auth');
+});
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('news/create', 'Admin\ProfileController@edit')->middleware('auth');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     Route::get('news/create', 'Admin\NewsController@add');
+     Route::post('news/create', 'Admin\NewsController@create');
+});
+
+
 
